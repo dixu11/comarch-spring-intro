@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
+//uwaga, adnotacje w tej klasie to adnotacje dla biblioteki Hibernate, nie Spring. Hibernate jest częścią JPA
 @Entity // mowi hibernate ze to encja bazodanowa
 public class Product {
     private String name;

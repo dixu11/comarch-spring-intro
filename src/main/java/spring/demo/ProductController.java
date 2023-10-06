@@ -1,7 +1,5 @@
 package spring.demo;
 
-import jakarta.annotation.PostConstruct;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Scanner;
@@ -12,7 +10,7 @@ public class ProductController {
 
     private ProductService productService;
 
-    public ProductController(ProductService productService) {
+    public ProductController(ProductService productService) { //Spring automatycznie wykorzysta ten konstruktor i poszuka beana typu ProductService
         this.productService = productService;
         System.out.println("Stworzony bean - Controller");
     }
@@ -30,6 +28,10 @@ public class ProductController {
         System.out.println("Twój produkt to: " + product);
         productService.addProduct(product);
     }*/
+
+    //metoda która zostanie wywołana gdy przyjdzie zapytanie http do serwera z taką ścieżką i typu POST.
+    //z ciała zapytania w formacie JSON zostanie stowrzony obiekt Product
+    //Klasa product musi w tym celu mieć bezparametrowy konstruktor, zgodność nazw pól z JSONem oraz gettery do wszystkich pól (settery niekoniecznie)
 
     //@RequestMapping(path = "/api/v1/products" , method = RequestMethod.POST)
     @PostMapping("/api/v1/products")

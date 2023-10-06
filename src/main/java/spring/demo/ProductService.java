@@ -1,6 +1,5 @@
 package spring.demo;
 
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 //@Component
@@ -19,12 +18,11 @@ public class ProductService {
 
     public void addProduct(Product product) {
         if (product.getName().isEmpty()) {
-            throw new IllegalArgumentException("Produkt pusty!");
+            throw new IllegalArgumentException("Produkt pusty!"); // wyjątek może być obsłużony w kontrolerze żeby np. ustawić odpowiedni status odpowiedzi http
         }
 
         System.out.println("Zapisuję " + product + " do bazy danych");
         productRepository.save(product);
     }
-
 
 }
